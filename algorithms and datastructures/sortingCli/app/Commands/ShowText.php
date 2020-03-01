@@ -30,12 +30,19 @@ class ShowText extends Command
      */
     public function handle()
     {
-    //file::get('Storage\shakespeare-complete-works.txt');
-    $read = file_get_contents('Storage\shakespeare-complete-works.txt');
-    //$readLower = array_map('strtolower', $read);
+        $this->info('Running');
+        $read = file_get_contents('Storage\shakespeare-complete-works.txt');
+        $readLowerAndCleaned = preg_replace("#[[:punct:]]#", '', strtolower($read));
 
-    $readLowerAndCleaned = preg_replace("#[[:punct:]]#", '', strtolower($read));
-    $this->info(implode(', ', $readLowerAndCleaned."\n"));
+        $output = preg_replace('!\s+!', ' ', $readLowerAndCleaned);
+        ini_set('memory_limit', '700M');
+
+        $array = explode(' ',  $output);     
+        file_put_contents('Storage\shakespeare-cleaned.txt', implode(' ', ($array)));
+
+
+    
+
 
 
     }

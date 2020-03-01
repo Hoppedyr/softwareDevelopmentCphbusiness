@@ -4,6 +4,8 @@ namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
+use Illuminate\Support\Facades\File;
+
 
 class MergeSort extends Command
 {
@@ -62,19 +64,26 @@ class MergeSort extends Command
     
     public function handle()
     {
+        //$random_number_array = range(0, 1000000);
+        //shuffle($random_number_array);
+
+
+        ini_set('memory_limit', '900M');
         $this->info('Running Merge Sort');
 
-        $random_number_array = range(0, 100000);
-        shuffle($random_number_array);
-            
-    
+        $read = file_get_contents('Storage\shakespeare-cleaned.txt');
+       
+       
         $start_time = microtime(true);
+        $array = explode(' ',  $read);   
+        file_put_contents('Storage\merge_sort.txt', implode(' ', ( $this->merge_sort($array))));
+        
+        //$this->info("\nSorted Array :");
         //$this->info(implode(', ', $this->merge_sort($random_number_array))."\n");
-        $this->merge_sort($random_number_array);
+        
         $this->info('it is sortet');
         $end_time = microtime(true);
         $this->info($end_time - $start_time . 'sec');
-
     }
    
     
