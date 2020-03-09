@@ -15,8 +15,8 @@ import (
 var wg = sync.WaitGroup{}
 
 func main() {
+	fmt.Println("starting the sorting")
 	text := getFilteredShakespearText("shakespeare-complete-works.txt")
-
 	wg.Add(5)
 	go heapSort(text)
 	go mergeSort(text)
