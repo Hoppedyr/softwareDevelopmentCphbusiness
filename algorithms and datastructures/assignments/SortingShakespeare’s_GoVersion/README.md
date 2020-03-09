@@ -3,7 +3,7 @@
 **<a href="https://datsoftlyngby.github.io/soft2020spring/resources/d34f80c6-01-miniproject-sorting-shakespeare.pdf">Assignment Specifications</a>**
 
 ```bash
-start main.exe
+start SortingShakespeare’s_GoVersion.exe
 ```
 
 **times**
