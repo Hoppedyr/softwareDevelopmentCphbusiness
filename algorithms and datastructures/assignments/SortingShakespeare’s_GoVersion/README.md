@@ -1,4 +1,5 @@
-# Mini Project #1 - Sorting Shakespeare’scomplete worksAlgorithms and Data Structures
+# Algorithms and Data Structures
+# Mini Project #1 - Sorting Shakespeare’s complete works 
 
 **<a href="https://datsoftlyngby.github.io/soft2020spring/resources/d34f80c6-01-miniproject-sorting-shakespeare.pdf">Assignment Specifications</a>**
 
