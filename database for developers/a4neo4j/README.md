@@ -6,7 +6,7 @@ The objective of this assignment is to provide practice in applying graph algori
 
 Your task is to import or create a sample Neo4j database, appropriate for testing graph algorithms and research this database to
 
-a)    identify the most important nodes, based on their relationships
+a)   identify the most important nodes, based on their relationships
 
 b)   detect the close connected communities of nodes
 
@@ -41,8 +41,6 @@ app.js will throw an exception, ignore it the code worked anyway!
 ## a) - identify the most important nodes, based on their relationships
 Page Rank is an algorithm that measures the influence or importance of nodes in a directed graph.
 
-Results: [Link to pagerank.json file](pagerank.json)
-
 ```cypher
 CALL gds.pageRank.stream({
   nodeProjection: 'Service',
@@ -60,7 +58,6 @@ ORDER BY score DESC, name ASC
 
 The Label Propagation algorithm (LPA) is a fast algorithm for finding communities in a graph. It detects these communities using network structure alone as its guide, and doesn’t require a pre-defined objective function or prior information about the communities.
 
-Results: [Link to labelPropagation.json file](labelPropagation.json)
 ```cypher
 CALL gds.labelPropagation.stream({
   nodeProjection: 'Service',
@@ -74,8 +71,6 @@ ORDER BY name ASC
 
 ## c) - discover similarity between nodes, based on their properties or behaviour
 The Node Similarity algorithm compares a set of nodes based on the nodes they are connected to. Two nodes are considered similar if they share many of the same neighbors. Node Similarity computes pair-wise similarities based on the Jaccard metric, also known as the Jaccard Similarity Score.
-
-Results: [Link to similarity.json file](similarity.json)
 
 
 ```cypher
@@ -96,7 +91,6 @@ Closeness centrality is a way of detecting nodes that are able to spread informa
 
 The closeness centrality of a node measures its average farness (inverse distance) to all other nodes. Nodes with a high closeness score have the shortest distances to all other nodes.
 
-Results: [Link to centrality-closeness.json file](centrality-closeness.json)
 
 ```cypher
 CALL gds.alpha.closeness.stream({
