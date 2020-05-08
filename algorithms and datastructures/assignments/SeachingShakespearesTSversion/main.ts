@@ -24,12 +24,14 @@ function start(): void {
     console.time();
     let res: Set<string> = st.find(substring);
     console.log('\n')
+    let test = Array.from(res.values())
     if (res != undefined)
       for (const item of Array.from(res.values())) {
         console.log(item);
       } else {
       console.log('could not find any matching words:' + " " + substring)
     }
+    console.log(test.length)
     console.timeEnd();
     start()
   });
